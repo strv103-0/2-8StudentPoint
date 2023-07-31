@@ -1,0 +1,39 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F0F0F0;
+  }
+
+h1 {
+    text-align: center;
+    margin-top: 50px;
+ }
+
+.student-list {
+    border: 1px solid #999;
+    padding: 10px;
+    margin: 20px;
+    border-radius: 10px;
+  }
+
+.student-list h2 {
+    margin-bottom: 10px;
+  }
+
+.student-list p {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+button {
+    font-size: 16px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #999;
+    color: #FFF;
+    margin-right: 10px;
+  }
+  
+button:hover {
+    cursor: pointer;
+    background-color: #666;
+  }
