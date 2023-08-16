@@ -1,3 +1,53 @@
+const students = [
+  { name: '강태수', id: 1 }, { name: '고정우', id: 2 },
+  { name: '곽찬주', id: 3 }, { name: '권준서', id: 4 },
+  { name: '김기민', id: 5 }, { name: '김은섭', id: 6 },
+  { name: '김지후', id: 7 }, { name: '박민규', id: 8 },
+  { name: '박정원', id: 9 }, { name: '배준후', id: 10 },
+  { name: '백승찬', id: 11 }, { name: '서준영', id: 12 },
+  { name: '송시욱', id: 13 }, { name: '신경용', id: 14 },
+  { name: '신이정', id: 15 }, { name: '신정현', id: 16 },
+  { name: '신정훈', id: 17 }, { name: '유재헌', id: 18 },
+  { name: '윤요한', id: 19 }, { name: '이건희', id: 20 },
+  { name: '이경훈', id: 21 }, { name: '이승찬', id: 22 },
+  { name: '이재원', id: 23 }, { name: '이정민', id: 24 },
+  { name: '이현호', id: 25 }, { name: '임채원', id: 26 },
+  { name: '장우혁', id: 27 }, { name: '정상빈', id: 28 },
+  { name: '정선균', id: 29 }, { name: '정승호', id: 30 },
+  { name: '정용규', id: 31 }, { name: '정진오', id: 32 },
+  { name: '조우성', id: 33 }, { name: '한영우', id: 34 },
+  { name: '허준성', id: 35 }, { name: '홍정우', id: 36 },
+  { name: '황지훈', id: 37 },
+];
+
+
+function generateStudentHTML(student) {
+return `
+  <div class="student-list" data-student-id="${student.id}">
+  <h2>${student.name}</h2>
+  <p>점수: <span class="score">0</span></p>
+  <button class="add_50-score">50점</button>
+  <button class="add_50-score">칭찬받음, 우수드립,<br>태도우수</button>
+  <button class="add_100-score">교복지적X, 등교시간준수,<br>청소우수</button>
+  <button class="add_300-score">다른반이김,<br>학급부서활동우수</button>
+  <button class="add_500-score">성적우수,<br>성적향상</button>
+  <button class="add_1000-score">체육대회우수,<br>교외활동우수</button>
+  <br>
+  <br>
+  <button class="subtract_50-score">-50점</button>
+  <button class="subtract_600-score">간식 이용권,<br>음료 이용권</button>
+  <button class="subtract_1200-score">늦은 출석권, 종례 면제권,<br>야자 면제권</button>
+  <button class="subtract_2000-score">자리 우선 선정권,<br>청소 탈주 1회</button>
+  </div>
+`;
+}
+
+const studentContainer = document.querySelector("#student-container");
+
+students.forEach(student => {
+studentContainer.innerHTML += generateStudentHTML(student);
+});
+
 // 해당 학생의 점수를 로컬 스토리지에 저장
 function saveScore(studentId, score) {
     const scores = JSON.parse(localStorage.getItem("student-scores") || "{}");
