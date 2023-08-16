@@ -26,18 +26,20 @@ return `
   <div class="student-list" data-student-id="${student.id}">
   <h2>${student.name}</h2>
   <p>점수: <span class="score">0</span></p>
-  <button class="add_50-score">50점</button>
-  <button class="add_50-score">칭찬받음, 우수드립,<br>태도우수</button>
-  <button class="add_100-score">교복지적X, 등교시간준수,<br>청소우수</button>
-  <button class="add_300-score">다른반이김,<br>학급부서활동우수</button>
+  <h3>점수 추가</h3>
+  <button class="add_50-score">50점<br>추가</button>
+  <button class="add_50-score">칭찬받음, 우수드립, 태도우수</button>
+  <button class="add_100-score">교복지적X, 등교시간준수, 청소우수</button>
+  <button class="add_300-score">다른반이김, 학급부서활동우수</button>
   <button class="add_500-score">성적우수,<br>성적향상</button>
-  <button class="add_1000-score">체육대회우수,<br>교외활동우수</button>
+  <button class="add_1000-score">체육대회우수,교외활동우수</button>
   <br>
-  <br>
-  <button class="subtract_50-score">-50점</button>
-  <button class="subtract_600-score">간식 이용권,<br>음료 이용권</button>
-  <button class="subtract_1200-score">늦은 출석권, 종례 면제권,<br>야자 면제권</button>
-  <button class="subtract_2000-score">자리 우선 선정권,<br>청소 탈주 1회</button>
+  <h3>점수 감소</h3>
+  <button class="subtract_50-score">50점<br>감소</button>
+  <button class="subtract_600-score">간식 이용권, 음료 이용권</button>
+  <button class="subtract_1200-score">늦은 출석권, 종례 면제권, 야자 면제권</button>
+  <button class="subtract_2000-score">자리 우선 선정권, 청소 탈주 1회</button>
+  <button class="reset-score">점수<br>초기화</button>
   </div>
 `;
 }
@@ -235,6 +237,28 @@ function saveScore(studentId, score) {
       saveScore(studentId, score);
     });
   });
+
+  // 모든 reset-score 버튼 가져오기
+  const resetButtons = document.querySelectorAll('.reset-score');
+
+  // 각 버튼을 순회하며 클릭 이벤트 리스너 추가
+  resetButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      // 사용자 확정 대화상자 추가
+      const confirmed = window.confirm("정말로 점수를 초기화 하겠습니까?");
+
+      if (confirmed) {
+        const studentList = button.parentNode;
+        const scoreSpan = studentList.querySelector('.score');
+        const studentId = studentList.dataset.studentId;
+        scoreSpan.textContent = 0;
+
+        // 변경된 점수를 로컬 스토리지에 저장
+        saveScore(studentId, 0);
+      }
+    });
+  });
+
 
   // 페이지가 로드될 때, 각 학생의 저장된 점수를 불러와서 화면에 표시
   window.addEventListener('load', () => {
