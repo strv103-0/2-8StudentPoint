@@ -28,10 +28,10 @@ h1 {
 button {
     font-size: 16px;
     padding: 5px 10px;
-    border-radius: 5px;
+    border-radius: 10px;
     background-color: #999;
     color: #FFF;
-    margin-right: 10px;
+    margin-right: 5px;
   }
   
 button:hover {
