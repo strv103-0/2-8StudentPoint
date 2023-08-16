@@ -11,45 +11,6 @@ function saveScore(studentId, score) {
     return scores[studentId] || 0;
   }
   
-  
-  // 모든 add-score 버튼 가져오기
-  const addButtons = document.querySelectorAll('.add-score');
-  
-  // 각 버튼을 순회하며 클릭 이벤트 리스너 추가
-  addButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      const studentList = button.parentNode;
-      const scoreSpan = studentList.querySelector('.score');
-      const studentId = studentList.dataset.studentId; // 고유한 학생 ID 가져오기
-      let score = parseInt(scoreSpan.textContent);
-      score += 50;
-      scoreSpan.textContent = score;
-  
-      // 변경된 점수를 로컬 스토리지에 저장
-      saveScore(studentId, score);
-    });
-  });
-  
-  // 모든 subtract-score 버튼 가져오기
-  const subtractButtons = document.querySelectorAll('.subtract-score');
-  
-  // 각 버튼을 순회하며 클릭 이벤트 리스너 추가
-  subtractButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      const studentList = button.parentNode;
-      const scoreSpan = studentList.querySelector('.score');
-      const studentId = studentList.dataset.studentId; // 고유한 학생 ID 가져오기
-      let score = parseInt(scoreSpan.textContent);
-  
-      if (score > 0) {
-        score -= 50;
-        scoreSpan.textContent = score;
-      }
-  
-      // 변경된 점수를 로컬 스토리지에 저장
-      saveScore(studentId, score);
-    });
-  });
 
   // 모든 add_50-score 버튼 가져오기
   const add_50Buttons = document.querySelectorAll('.add_50-score');
@@ -135,6 +96,90 @@ function saveScore(studentId, score) {
       let score = parseInt(scoreSpan.textContent);
       score += 1000;
       scoreSpan.textContent = score;
+
+      // 변경된 점수를 로컬 스토리지에 저장
+      saveScore(studentId, score);
+    });
+  });
+
+  // 모든 subtract_50-score 버튼 가져오기
+  const subtract_50Buttons = document.querySelectorAll('.subtract_50-score');
+
+  // 각 버튼을 순회하며 클릭 이벤트 리스너 추가
+  subtract_50Buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      const studentList = button.parentNode;
+      const scoreSpan = studentList.querySelector('.score');
+      const studentId = studentList.dataset.studentId; // 고유한 학생 ID 가져오기
+      let score = parseInt(scoreSpan.textContent);
+
+      if (score > 0) {
+        score -= 50;
+        scoreSpan.textContent = score;
+      }
+
+      // 변경된 점수를 로컬 스토리지에 저장
+      saveScore(studentId, score);
+    });
+  });
+
+  // 모든 subtract_600-score 버튼 가져오기
+  const subtract_600Buttons = document.querySelectorAll('.subtract_600-score');
+
+  // 각 버튼을 순회하며 클릭 이벤트 리스너 추가
+  subtract_600Buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      const studentList = button.parentNode;
+      const scoreSpan = studentList.querySelector('.score');
+      const studentId = studentList.dataset.studentId; // 고유한 학생 ID 가져오기
+      let score = parseInt(scoreSpan.textContent);
+
+      if (score >= 600) {
+        score -= 600;
+        scoreSpan.textContent = score;
+      }
+
+      // 변경된 점수를 로컬 스토리지에 저장
+      saveScore(studentId, score);
+    });
+  });
+
+  // 모든 subtract_1200-score 버튼 가져오기
+  const subtract_1200Buttons = document.querySelectorAll('.subtract_1200-score');
+
+  // 각 버튼을 순회하며 클릭 이벤트 리스너 추가
+  subtract_1200Buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      const studentList = button.parentNode;
+      const scoreSpan = studentList.querySelector('.score');
+      const studentId = studentList.dataset.studentId; // 고유한 학생 ID 가져오기
+      let score = parseInt(scoreSpan.textContent);
+
+      if (score >= 1200) {
+        score -= 1200;
+        scoreSpan.textContent = score;
+      }
+
+      // 변경된 점수를 로컬 스토리지에 저장
+      saveScore(studentId, score);
+    });
+  });
+
+  // 모든 subtract_2000-score 버튼 가져오기
+  const subtract_2000Buttons = document.querySelectorAll('.subtract_2000-score');
+
+  // 각 버튼을 순회하며 클릭 이벤트 리스너 추가
+  subtract_2000Buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      const studentList = button.parentNode;
+      const scoreSpan = studentList.querySelector('.score');
+      const studentId = studentList.dataset.studentId; // 고유한 학생 ID 가져오기
+      let score = parseInt(scoreSpan.textContent);
+
+      if (score >= 2000) {
+        score -= 2000;
+        scoreSpan.textContent = score;
+      }
 
       // 변경된 점수를 로컬 스토리지에 저장
       saveScore(studentId, score);
